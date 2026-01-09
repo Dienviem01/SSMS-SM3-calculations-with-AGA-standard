@@ -29,9 +29,17 @@ Sistem bekerja secara otomatis melalui rantai eksekusi berikut:
 
 ## 📝 Logika Kalkulasi (AGA Approach)
 
-Sistem mengonversi tekanan gas menjadi volume standar () dengan mempertimbangkan faktor kompresibilitas () dan perbandingan temperatur standar:
+Sistem mengonversi tekanan gas menjadi volume standar ($Sm^3$) dengan mempertimbangkan volume unit, faktor kompresibilitas ($FPV^2$), dan koreksi temperatur standar. Rumus yang diimplementasikan dalam **`[dbo].[sp_SM3AGAcalc]`** adalah sebagai berikut:
 
-$$Vol_{Sm3} = \left( \frac{LWC}{1000} \times \frac{P + P_{base}}{P_{base}} \right) \times \left( \frac{273.15 + T_{base}}{273.15 + T_{std}} \right) \times FPV^2$$
+$$Volume = \left( \frac{V \times (P + P_{base})}{P_{base}} \right) \times \left( \frac{273.15 + T_{base}}{273.15 + T_{std}} \right) \times FPV^2$$
+
+**Keterangan Parameter:**
+* **$V$**: *Water Capacity* / LWC (Liter)
+* **$P$**: Tekanan gas terukur (Bar)
+* **$P_{base}$**: Tekanan dasar (1.01325 bar)
+* **$T_{base}$**: Temperatur operasional (30°C)
+* **$T_{std}$**: Temperatur standar (20°C)
+* **$FPV^2$**: Faktor kompresibilitas gas ($1 + (P \times 0.00175)$)
 
 ## 🚀 Keunggulan Sistem
 
