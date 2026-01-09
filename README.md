@@ -31,6 +31,8 @@ Sistem bekerja secara otomatis melalui rantai eksekusi berikut:
 
 Sistem mengonversi tekanan gas menjadi volume standar () dengan mempertimbangkan faktor kompresibilitas () dan perbandingan temperatur standar:
 
+$$Vol_{Sm3} = \left( \frac{LWC}{1000} \times \frac{P + P_{base}}{P_{base}} \right) \times \left( \frac{273.15 + T_{base}}{273.15 + T_{std}} \right) \times FPV^2$$
+
 ## 🚀 Keunggulan Sistem
 
 * **Zero Manual Intervention**: Dengan adanya Trigger, kalkulasi berjalan otomatis tanpa perintah manual.
